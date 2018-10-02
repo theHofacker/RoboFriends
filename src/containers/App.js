@@ -5,7 +5,7 @@ import SearchBox from '../components/SearchBox';
 import Scroll from '../components/Scroll';
 import './App.css';
 
-import { setSearchField } from '../actions'
+import { setSearchField } from '../action'
 
 const mapStateToProps = state => {
   return{
@@ -36,9 +36,10 @@ class App extends Component {
 
   render() {
     const { robots } = this.state;
-    const { searchField: onSearchChange } = this.props;
+    console.log(this.props)
+    const { searchField, onSearchChange } = this.props;
     const filteredRobots = robots.filter(robot =>{
-      return robot.name.toLowerCase().includes(searchfield.toLowerCase());
+      return robot.name.toLowerCase().includes(searchField.toLowerCase());
     })
     return !robots.length ?
       <h1>Loading</h1> :
